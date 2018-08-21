@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MathGamerComponent } from './math-gamer/math-gamer.component';
+import { LevelComponent } from './level/level.component';
+import { MathgameshomeComponent } from './mathgameshome/mathgameshome.component';
+
 
 const routes: Routes = [
-  { path: 'mathGames', component: MathGamerComponent }
+  { path: 'mathHome', component: MathgameshomeComponent },
+  { path: 'level', component: LevelComponent }
+
 ];
 
 @NgModule({

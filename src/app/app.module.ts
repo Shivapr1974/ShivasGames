@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { MathGamerModule } from './math-gamer/math-gamer.module';
+import { MathGamesModule } from './math-games/math-games.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { MathGamerModule } from './math-gamer/math-gamer.module';
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    MathGamerModule
+    MathGamesModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
