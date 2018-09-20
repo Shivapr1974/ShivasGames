@@ -1,0 +1,96 @@
+<!-- <p>
+  word-trivia-games ({{category}} {{type}} ) works!
+</p> -->
+<div class="row" *ngIf="type!='hangman'">
+    <div class="right col-12" >
+        <app-rating [rating]=ratingVal [itemId]='3'></app-rating>
+        Score: {{score}}
+    </div>  
+</div>
+<div class="row" *ngIf="type=='learner'">
+  <div id="learner" class="left col-12" >
+      <!-- Hello learner<br> -->
+      <button (click)="getNextQuestion(-1)" class=" btn btn-info btn-lg-round medium">Previous</button>
+      <button (click)="getNextQuestion(1)" class=" btn btn-info btn-lg-round medium">Next</button>
+      <!-- <button (click)="setShowAns()" class=" btn btn-info btn-lg-round medium">Answer</button> -->
+      <br><br>
+      
+      <span class="ques">{{currQuestion.question}}</span><br><br>
+      <span class="ans">{{currQuestion.ans}} </span>
+  </div>
+</div>
+<div class="row" *ngIf="type=='hangman'" id="hangman" >
+    <div class="col-12" >
+      <div class="row">
+        <div class="center col-6" >
+            <img class="height125" src="../assets/imagev{{hangmanCount}}.png" />
+        </div>
+        <div class="right col-6" >
+            <app-rating [rating]=ratingVal [itemId]='3'></app-rating>
+            Score: {{score}}<br>
+        </div>
+      </div>
+    </div>
+    <div class="center col-12" >
+      <span class="complete"   (click)="ngOnInit()" *ngIf="complete!=''">{{complete}}
+          <span class="retry">Replay?</span><br>
+      </span>
+      <span class="complete"  *ngIf="next!=''">{{next}}<br></span>
+      <span class="error"  *ngIf="showAns!=''"><b>Answer is </b> <q >{{showAns}}</q > <br></span>
+      <span class="usrAns" *ngIf="usrAns!=''"> {{usrAns}} </span><br>
+      <span class="hint" *ngIf="showQues!=''"><b>Hint: </b> {{showQues}}</span><br>
+    </div>
+    <div class="center col-12" >
+      
+      <span *ngFor="let alpha of alphaArray">
+          <button (click)="setAns(alpha)" class=" btn btn-info btn-lg-round xsmall height35">{{alpha}}</button>
+      </span>
+      <button (click)="clearAns()" class=" btn btn-info btn-lg-round xsmall">Clear</button>
+      <button (click)="delAns()" class=" btn btn-info btn-lg-round xsmall">Del</button>
+    
+      <button (click)="setShowQues()" class=" btn btn-info btn-lg-round medium">Hint</button>
+      <button (click)="setShowAns()" class=" btn btn-info btn-lg-round small">Answer</button>
+      <button (click)="getRandomQuestionAns()" class=" btn btn-info btn-lg-round small">Next</button>
+    </div>
+</div>
+<div class="row" *ngIf="type=='scrambler'">
+  <div class="center col-12" >
+    <span class="complete"   (click)="ngOnInit()" *ngIf="complete!=''">{{complete}}
+        <span class="retry">Replay?</span><br>
+    </span>
+    <span class="error"  *ngIf="showAns!=''"><b>Answer is </b> <q >{{showAns}}</q > <br></span>
+    <span class="usrAns"> {{usrAns}} </span><br>
+    <span class="hint" *ngIf="showQues!=''"><b>Hint: </b> {{showQues}}<br><br></span>
+
+    <span *ngFor="let scrambledAnswer of currQuestion.scrambledAnswer">
+      <button (click)="setAns(scrambledAnswer)" class=" btn btn-info btn-lg-round small height40">{{scrambledAnswer}}</button>
+    </span><br>
+    <button (click)="clearAns()" class=" btn btn-info btn-lg-round medium">Clear</button>
+    <button (click)="delAns()" class=" btn btn-info btn-lg-round medium">Del</button><br>
+
+    <button (click)="setShowQues()" class=" btn btn-info btn-lg-round medium">Hint</button>
+    <button (click)="setShowAns()" class=" btn btn-info btn-lg-round medium">Answer</button>
+    <button (click)="getRandomQuestionAns()" class=" btn btn-info btn-lg-round medium">Next</button>
+
+  </div>
+</div>
+<div class="row" *ngIf="type=='tester'" id="tester">
+    <div class="left col-12" >
+      <span class="complete"   (click)="ngOnInit()" *ngIf="complete!=''">{{complete}}
+          <span class="retry">Replay?</span><br>
+      </span>
+      <span class="error"  *ngIf="showAns!=''"><b>Incorrect. </b> <q >{{showAns}}</q > <br></span>
+      <span class="question">{{currQuestion.question}}</span><br>
+      <div *ngFor="let scrambledOptions of currQuestion.scrambledOptions">
+        <span (click)="onSelectionChange(scrambledOptions)">
+          <input class="w3-radio" type="radio"  name="optionGroup"  
+            [checked]="testeruserValue == scrambledOptions"> &nbsp;&nbsp;&nbsp;{{scrambledOptions}}<br>
+        </span>
+        <!-- (click)=onSelectionChange(scrambledOptions)  -->
+
+      </div>
+    </div>
+    <div class="center col-12" >
+        <button (click)="getRandomQuestionAns()" class=" btn btn-info btn-lg-round medium">Next</button><br>
+    </div>
+</div>

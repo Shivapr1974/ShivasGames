@@ -1,0 +1,48 @@
+
+  <div class="row" *ngIf="type=='level'">
+      <div class="center col-12" >
+          <H4>Select a Level </H4>
+          <i>(Its used in Math and Word Games)</i><br><br>
+      </div>       
+      <div class="left col-4" >
+      </div>  
+      <div class="left col-8" >
+          <span (click)="onSelectionChange(1)"><input type="radio" class="w3-radio"  name="levelgroup"   
+            [checked]="dataService.level == 1"  [value]="1">  &nbsp;&nbsp;&nbsp;Smart Juniors<br>    </span>  
+          <span (click)="onSelectionChange(2)"> <input class="w3-radio" type="radio" name="levelgroup"   
+            [checked]="dataService.level == 2"  [value]="2"> &nbsp;&nbsp;&nbsp;Beginner<br>  </span>  
+          <span (click)="onSelectionChange(3)"> <input type="radio" class="w3-radio"  name="levelgroup"  
+            [checked]="dataService.level == 3"  [value]="3">  &nbsp;&nbsp;&nbsp;Intermediate<br>  </span>  
+          <span (click)="onSelectionChange(4)"> <input type="radio" class="w3-radio"  name="levelgroup"   
+            [checked]="dataService.level == 4"  [value]="4">  &nbsp;&nbsp;&nbsp;Advanced<br>  </span>  
+      </div>
+  </div>
+
+  <div class="row" *ngIf="type=='category'">
+        <div class="center col-12" >
+          <H4>Select a Category</H4>
+          <i>(Its used in Trivia Games)</i><br><br>
+        </div>     
+        <div class="left col-4" >
+        </div>  
+        <div class="left col-8" >
+          <span (click)="onCategoryChange('Geography')"><input class="w3-radio" type="radio" name="categorygroup"   
+            [checked]="dataService.category == 'Geography'"  [value]="Geography"> &nbsp;&nbsp;&nbsp;Geography<br></span>  
+          <span (click)="onCategoryChange('History')"><input type="radio" class="w3-radio"  name="categorygroup"   
+            [checked]="dataService.category == 'History'"  [value]="History">  &nbsp;&nbsp;&nbsp;History<br></span>  
+          <span (click)="onCategoryChange('Science')"><input type="radio" class="w3-radio"  name="categorygroup"   
+            [checked]="dataService.category == 'Science'"  [value]="Science">  &nbsp;&nbsp;&nbsp;Science<br></span> 
+          <span (click)="onCategoryChange('Sports')"><input type="radio" class="w3-radio"  name="categorygroup"   
+            [checked]="dataService.category == 'Sports'"  [value]="Sports" >  &nbsp;&nbsp;&nbsp;Sports<br></span> 
+          <span (click)="onCategoryChange('Entertainment')"><input type="radio" class="w3-radio"  name="categorygroup"   
+            [checked]="dataService.category == 'Entertainment'"  [value]="Entertainment">  &nbsp;&nbsp;&nbsp;Entertainment<br></span> 
+        </div>
+  </div>
+                   
+  <br>  
+  <!-- <a routerLink="/level" class="btn btn-info btn-lg-round long" >Level</a> -->
+  <div class="row">
+    <div class="center col-12" >
+        <button (click)="goBack()" class=" btn btn-info btn-lg-round long">Done</button>
+    </div>
+  </div>

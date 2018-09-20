@@ -1,0 +1,86 @@
+<!-- Math ({{type}}) -->
+<!-- Calculation -->
+<!-- Tables -->
+<div class="row" *ngIf="type=='tables'">
+  <div class="center col-12" >
+      <button (click)="setTables(-1)" class=" btn btn-info btn-lg-round medium">Previous</button>
+      <button (click)="setTables(1)" class=" btn btn-info btn-lg-round medium">Next</button>
+      <div class="center col-12 height25" > </div>
+      <div *ngFor="let number of nums">
+        {{number}} x {{x}} = {{number * x}} 
+      </div>
+  </div>
+</div>
+<div class="row" *ngIf="type!='tables'">
+  <div class="right col-5" > </div>
+  <div class="right col-7" >
+    <app-rating [rating]=ratingVal [itemId]='3'></app-rating>
+    Score: {{score}}
+  </div>
+</div>
+<div class="row" *ngIf="type!='tables'">
+    <div class="center col-12 complete" *ngIf="instr!=''"  (click)="ngOnInit()">{{instr}} 
+        <span class="retry">Replay?</span>
+      <br>
+    </div>
+
+    <div class="center col-12 error" > {{error}}</div>
+    <div class="center col-12" >
+      <div class="row"> 
+        <div class="col-4" > </div>        
+        <div class="right col-3 height35" >
+            {{x}} 
+        </div>
+        <div class="left col-5 height35" >
+           {{oper}}
+        </div>
+      </div>
+      <div class="row"> 
+          <div class="col-4" > </div>        
+          <div class="right col-3 height35" >
+                {{y}} 
+        </div>
+        <div class="left col-5 height35" > </div>
+      </div>
+      <div class="row"> 
+          <div class="col-5" > </div>        
+          <div class="col-2 hline-bottom" > </div>
+          <div class="col-5" > </div>
+      </div>
+      <div class="row"> 
+          <div class="col-4" > </div>        
+          <div class="right col-3 height35" >
+              {{usrAns}}
+          </div>
+      </div>
+      <div class="row"> 
+          <div class="col-5" > </div>        
+          <div class="col-2 hline-bottom" > </div>
+          <div class="col-5" > </div>
+      </div>
+      <div class="center col-12 height25" > </div>
+      <div class="center col-12" >
+        <button (click)="setAns('1')" class=" btn btn-info btn-lg-round small height40 ">1</button>
+        <button (click)="setAns('2')" class=" btn btn-info btn-lg-round small height40">2</button>
+        <button (click)="setAns('3')" class=" btn btn-info btn-lg-round small height40">3</button>
+      </div>
+      <div class="center col-12" >
+        <button (click)="setAns('4')" class=" btn btn-info btn-lg-round small height40">4</button>
+        <button (click)="setAns('5')" class=" btn btn-info btn-lg-round small height40">5</button>
+        <button (click)="setAns('6')" class=" btn btn-info btn-lg-round small height40">6</button>
+      </div>
+      <div class="center col-12" >
+        <button (click)="setAns('7')" class=" btn btn-info btn-lg-round small height40">7</button>
+        <button (click)="setAns('8')" class=" btn btn-info btn-lg-round small height40">8</button>
+        <button (click)="setAns('9')" class=" btn btn-info btn-lg-round small height40">9</button>
+      </div>
+      <div class="center col-12" >
+        <button (click)="delAns()" class=" btn btn-info btn-lg-round small height40">Del</button>
+        <button (click)="setAns('0')" class=" btn btn-info btn-lg-round small height40 ">0</button>
+        <button (click)="clearAns()" class=" btn btn-info btn-lg-round small height40"> Clear</button>
+     </div>  
+      <div class="center col-12" >
+        <button (click)="generate()" class=" btn btn-info btn-lg-round xmedium height40">Next</button><br>
+      </div>  
+  </div>
+</div>
